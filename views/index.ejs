@@ -1,0 +1,81 @@
+<!doctype html>
+<html ng-app="callCenter">
+<head>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet">
+    
+    <title>callCenter</title>
+</head>
+<body>
+
+
+      
+
+    <!-- display call status in this paragraph tag -->
+    <p>Awaiting incoming call...</p>
+    <button id="hangup">Hang Up</button>
+ 
+    <br/>
+    <p>
+        <br>
+        <input id="number" type="text" placeholder="Enter a number like +18012279533"/>
+    </p>
+    <button id="call">Call This Number</button>
+ 
+
+    
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.js"></script>
+    <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+    
+    <script src='scripts/apps.js'></script>
+
+    <!-- include the Twilio Client JavaScript SDK -->
+    <script src="http://static.twilio.com/libs/twiliojs/1.1/twilio.min.js"></script>
+ 
+    <!-- include jQuery to make DOM manipulation and event handling nicer -->
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+ 
+    <!-- accept incoming calls to this client -->
+    <script type="text/javascript">
+        // Set up the Twilio "Device" (think of it as the browser's phone) with
+        // our server-generated capability token, which will be inserted by the
+        // EJS template system:
+        Twilio.Device.setup('<%= token %>');
+ 
+        // Register an event handler to be called when there is an incoming
+        // call:
+
+        Twilio.Device.incoming(function(connection) {
+            connection.accept();
+            $('p').html('Call in progress...');
+        });
+ 
+        // Register an event handler for when a call ends for any reason
+        Twilio.Device.disconnect(function(connection) {
+            $('p').html('Awaiting incoming call...');
+        });
+ 
+        // Add a click event for the button, which will hang up the current
+        // call when clicked:
+        $('#hangup').click(function() {
+            Twilio.Device.disconnectAll();
+        });
+ 
+        // Make an outbound call to the number given in the text field:
+        $('#call').on('click', function() {
+        
+            // The properties of this object will be sent as POST
+            // Parameters to URL which generates TwiML.
+            Twilio.Device.connect({
+                CallerId:'+18016152735', // Replace this value with a verified Twilio number:
+                                         // https://www.twilio.com/user/account/phone-numbers/verified
+ 
+                PhoneNumber:$('#number').val() //pass in the value of the text field
+            });
+        });
+    </script>
+
+
+    </body>
+</html>
