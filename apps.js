@@ -1,6 +1,4 @@
-
-
- var callCenter = angular.module('callCenter', ["ui.router"])
+var callCenter = angular.module('callCenter', ["ui.router"])
     callCenter.config(function($stateProvider, $urlRouterProvider){
       
       // For any unmatched url, send to /route1

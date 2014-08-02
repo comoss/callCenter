@@ -17,7 +17,7 @@
     <br/>
     <p>
         <br>
-        <input id="number" type="text" placeholder=" +18012279533"/>
+        <input id="number" type="text" placeholder="Format #'s like this +18012279533"/>
     </p>
     <button id="call">Call This Number</button>
  
@@ -28,7 +28,6 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.js"></script>
     <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
     
-    <script src='scripts/apps.js'></script>
 
     <!-- include the Twilio Client JavaScript SDK -->
     <script src="http://static.twilio.com/libs/twiliojs/1.1/twilio.min.js"></script>
@@ -74,7 +73,9 @@
                 PhoneNumber:$('#number').val() //pass in the value of the text field
             });
         });
+        
     </script>
+    <script src='scripts/apps.js'></script>
 
 
     </body>
