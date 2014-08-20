@@ -10,7 +10,7 @@ var client = new twilio.RestClient('ACad14cf9ae6eda55b278211274df94264', '5551e9
 client.sms.messages.create({
     to:'+18012279533',
     from:'+18016152735',
-    body:'you are so cool you should get this site working'
+    body:';kl;lkj;ljkj;lk'
 }, function(error, message) {
     // The HTTP request to Twilio will run asynchronously. This callback
     // function will be called when a response is received from Twilio

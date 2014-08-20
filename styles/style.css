@@ -1,0 +1,162 @@
+
+
+.phone {
+	margin-left: 8em;
+	border: 1px solid #e5e5e5;
+	height: auto;
+	padding: 1em;
+	border-radius: 0.25em;
+	display: inline-block;
+}
+
+.phonea {
+	margin-right: 17em;
+	border: 1px solid #e5e5e5;
+	width: 45em;
+	height: 19.5em;
+	padding-top: 2em;
+	padding-left: 2em;
+	padding-right: 2em;
+	border-radius: 0.25em;
+	display: inline-block;
+	float: right;
+	position: top;
+
+}
+
+.peabody1 {
+
+	float: left;
+	display: inline-block;
+	margin-left: 1.5em;
+}
+.peabody {
+	display: inline-block;
+	margin-left: 1.5em;
+	float:right;
+}
+.main {
+	margin-bottom: 3em;
+	margin-top: 2em;
+}
+
+.col-md-9 {
+margin-left: 9em;
+
+}
+
+.text {
+	text-align: center;
+}
+
+#hangup {
+	margin-left: .5em;
+}
+
+p {
+	font-family: sans-serif;
+	padding:.5em;
+}
+
+.checkbox {
+	display: inline-block;
+	margin-left: 8em;
+	}
+
+#accept {
+	margin-left: 4em;
+}
+
+#button1 { 
+	height: 2em;
+	width: 3em;
+	margin: .25em;
+}
+#button2 { 
+	height: 2em;
+	width: 3em;
+	margin: .25em;
+}
+#button3 { 
+	height: 2em;
+	width: 3em;
+	margin: .25em;
+}
+#button4 { 
+	height: 2em;
+	width: 3em;
+	margin: .25em;
+}
+#button5 { 
+	height: 2em;
+	width: 3em;
+	margin: .25em;
+}
+#button6 { 
+	height: 2em;
+	width: 3em;
+	margin: .25em;
+}
+#button7 { 
+	height: 2em;
+	width: 3em;
+	margin: .25em;
+}
+#button8 { 
+	height: 2em;
+	width: 3em;
+	margin: .25em;
+}
+#button9 { 
+	height: 2em;
+	width: 3em;
+	margin: .25em;
+}
+#button0 { 
+	height: 2em;
+	width: 3em;
+	margin: .25em;
+}
+#buttonStar { 
+	height: 2em;
+	width: 3em;
+	margin: .25em;
+}
+#buttonPound { 
+	height: 2em;
+	width: 3em;
+	margin: .25em;
+}
+
+#dialpad {
+	width: 11.25em;
+	margin-left: 5em;
+}
+
+#tocall {
+	position: top;
+}
+
+.image {
+	display: inline-block;
+	margin-left: 3em;
+}
+
+#call {
+	position: top;
+	margin-left: .5em;
+	margin-bottom: .5em;
+}
+
+.center-block {
+	 display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.darkbox {
+	max-width: auto;
+}
+/* {
+   border: 1px solid red !important;
+}*/

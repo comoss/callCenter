@@ -4,11 +4,20 @@ var twilio = require('twilio'),
  
 // Create an express application
 var app = express();
- 
+
+app.use(express.static('/views')) 
+app.use('/scripts', express.static(__dirname + '/scripts'));
+app.use('/styles', express.static(__dirname + '/styles'));
+app.use('/html', express.static(__dirname + '/html'));
+app.use('/html', express.static(__dirname + '/html'));
+
+
+
+
 // Render an HTML page which contains a capability token that
 // will grant permission to accept inbound calls to the ID
 // "kevin" (this could be any string)
-app.get('/', function(req, res) {
+app.get('html/index.html', function(req, res) {
  
     // Create an object which will generate a capability token
     // Replace these two arguments with your own account SID
@@ -26,10 +35,12 @@ app.get('/', function(req, res) {
       capability.allowClientOutgoing('AP59fc472c368cff17be7eb9c5be831a2b');
  
     // Render an HTML page which contains our capability token
-    res.render('index.ejs', {
+    res.render('html/index.html', {
         token:capability.generate()
     });
 });
+
+
  
 app.listen(1337);
 console.log('Visit http://localhost:1337/ to accept inbound calls and make outbound calls!');
