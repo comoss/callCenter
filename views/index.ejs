@@ -2,31 +2,29 @@
 <html ng-app="callCenter">
 <head>
    
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     <title>callCenter</title>
 </head>
 <body>
-<div class nav>
-    <ul class="nav nav-tabs nav-justified" role="tablist">
+<button class="btn btn-primary" data-toggle="modal" data-target=".bs-modal-sm"><img id='phoneImg'  src="http://simpleicon.com/wp-content/uploads/phone-symbol-2.png"></button>
+   <nav class='navbar-default' role='navigation'>
+    <ul class="nav nav-pills">
   <li class="active"><a href="#">Home</a></li>
   <li><a href="#">Will add</a></li>
   <li><a href="#">Stuff Later :)</a></li>
 </ul>
-  </div>
+</div>
 
-<div ui-view='login'></div>
 
-<div class='main'>
-<div class='phone'>
+<div class="modal fade bs-modal-sm" tabindex="-1" role="" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+     <div class='phone' >
   <!-- display call status in this paragraph tag -->
     <p class='peabody1'>   Awaiting incoming call...</p><button id="hangup" class='peabody'>End Call</button>
-    <!-- <button id='accept'>Accept Call</button> -->
-    
     <br/>
-    <p>
-      <div>
-<div><input type="text" id="tocall" placeholder='+18015554444' value=""><button id="call">Start Call</button></div>
+<div><input type="text" id="tocall" placeholder='+1addsomethinghere' value=""><button id="call">Start Call</button></div>
 <br>
    <div id="dialpad">
     <table>
@@ -52,8 +50,12 @@
     </tr>
     </table>
     </div>
-    <!-- <button id="reject">Reject Call</button> -->
 </div> 
+    </div>
+  </div>
+</div>
+
+
 </div>
     <!-- include the Twilio Client JavaScript SDK -->
     <script src="http://static.twilio.com/libs/twiliojs/1.1/twilio.min.js"></script>
@@ -121,7 +123,7 @@
             });
     });
        
-
+$('#myModal').modal('show')
     </script>
 
 
@@ -139,13 +141,13 @@
    <a ui-sref="route2" class='image'><img src='http://littlegiantladders.com/skin/frontend/default/littlegiant/images/category/home/MultiUse.png'></a>
    <a ui-sref="route3" class='image'><img src='http://littlegiantladders.com/skin/frontend/default/littlegiant/images/category/home/Stepladder.png'></a>
 </div>
-<div ui-view='phone'></div>
+<div ui-view></div>
 
 </div> 
 
 
 
-
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.js"></script>
     <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
     <script src='scripts/apps.js'></script>

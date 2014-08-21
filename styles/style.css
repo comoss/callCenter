@@ -1,12 +1,19 @@
 
+#phoneImg {
+ max-width: 100%;
+ max-height: auto;
+}
+
+.btn-primary {
+	height: 100%;
+	width: 5%;
+	position: absolute;
+	height: ;
+}
 
 .phone {
-	margin-left: 8em;
-	border: 1px solid #e5e5e5;
 	height: auto;
 	padding: 1em;
-	border-radius: 0.25em;
-	display: inline-block;
 }
 
 .phonea {

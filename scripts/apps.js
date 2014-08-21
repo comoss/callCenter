@@ -2,7 +2,7 @@ var callCenter = angular.module('callCenter', ["ui.router"])
     callCenter.config(function($stateProvider, $urlRouterProvider){
       
       
-      $urlRouterProvider.otherwise("html/index.html")
+      $urlRouterProvider.otherwise("/")
       
       $stateProvider
         .state('route1', {

@@ -2,7 +2,8 @@
         // Set up the Twilio "Device" (think of it as the browser's phone) with
         // our server-generated capability token, which will be inserted by the
         // EJS template system:
-        Twilio.Device.setup('<%= token %>');
+        Twilio.Device.setup(app.get('token'));
+        // Twilio.Device.setup('<%= token %>');
         // Register an event handler to be called when there is an incoming
         // call:
 
@@ -23,7 +24,7 @@
             console.log('call disconnected')
         $('#hangup').click(function() {
             Twilio.Device.disconnectAll();
-            $('p').ejs('Call Disconneted')
+            // $('p').ejs('Call Disconneted')
         });
 });
              $("#call").click(function() {  
