@@ -1,14 +1,25 @@
+html{
+    min-height:100%;/* make sure it is at least as tall as the viewport */
+   /* position:relative*/
+}
+body{
+    height:100% 
+}
+.btn-primary{
+    position:fixed;
+    width: 5%;
+    border-radius: 0;
+    }
+
+
+
+.active {
+	margin-left: 6em;
+}
 
 #phoneImg {
  max-width: 100%;
  max-height: auto;
-}
-
-.btn-primary {
-	height: 100%;
-	width: 5%;
-	position: absolute;
-	height: ;
 }
 
 .phone {
@@ -17,22 +28,14 @@
 }
 
 .phonea {
-	margin-right: 17em;
+	margin-left: 15em;
 	border: 1px solid #e5e5e5;
-	width: 45em;
-	height: 19.5em;
-	padding-top: 2em;
-	padding-left: 2em;
-	padding-right: 2em;
+	width: 20em;
+	height: 10em;
 	border-radius: 0.25em;
-	display: inline-block;
-	float: right;
-	position: top;
-
 }
 
 .peabody1 {
-
 	float: left;
 	display: inline-block;
 	margin-left: 1.5em;
@@ -48,7 +51,7 @@
 }
 
 .col-md-9 {
-margin-left: 9em;
+margin-left: 14em;
 
 }
 
