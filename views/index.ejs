@@ -8,7 +8,7 @@
 </head>
 <body>
     
-        <button class="btn btn-primary" data-toggle="modal" data-target=".bs-modal-sm"><img id='phoneImg'  src="http://simpleicon.com/wp-content/uploads/phone-symbol-2.png"></button>
+        <button class="btn btn-primary" data-toggle="modal" data-target=".bs-modal-lg"><img id='phoneImg'  src="http://simpleicon.com/wp-content/uploads/phone-symbol-2.png"></button>
  
 
    <nav class='navbar-default' role='navigation'>
@@ -19,38 +19,46 @@
 </ul>
 </nav>
 
-<div class="modal fade bs-modal-sm" tabindex="-1" role="" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
+<div class="modal fade bs-modal-lg" tabindex="-1" role="" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
-     <div class='phone' >
+     <div class='phone'>
   <!-- display call status in this paragraph tag -->
-    <p class='peabody1'>   Awaiting incoming call...</p><button id="hangup" class='peabody'>End Call</button>
-    <br/>
-<div><input type="text" id="tocall" placeholder='+1addsomethinghere' value=""><button id="call">Start Call</button></div>
-<br>
+    <!-- <p class='peabody1' id='p-status'>   Awaiting incoming call...</p> -->
+    
+    
+    
+    
+<div class='innerDiv'>
+<div class='tocall'>
+    <form role='form'><input type="text" class='form-control' value="+"></form>
+</div>
+
    <div id="dialpad">
     <table>
     <tr>
-    <td><input type="button" class='brand' value="1" id="button1"></td>
-    <td><input type="button" value="2" id="button2"></td>
-    <td><input type="button" value="3" id="button3"></td>
+    <td><button id="button1" value='1'><p class='numberSize'>1</p></button></td>
+    <td><button id="button2" value='2'><p class='numberSize'>2</p></button></td>
+    <td><button id="button3" value='3'><p class='numberSize'>3</p></button></td>
     </tr>
     <tr>
-    <td><input type="button" value="4" id="button4"></td>
-    <td><input type="button" value="5" id="button5"></td>
-    <td><input type="button" value="6" id="button6"></td>
-    </tr>
+    <td><button id="button4" value='4'><p class='numberSize'>4</p></button></td>
+    <td><button id="button5" value='5'><p class='numberSize'>5</p></button></td>
+    <td><button id="button6" value='6'><p class='numberSize'>6</p></button></td>    
     <tr>
-    <td><input type="button" value="7" id="button7"></td>
-    <td><input type="button" value="8" id="button8"></td>
-    <td><input type="button" value="9" id="button9"></td>
-    </tr>
+    <td><button id="button7" value='7'><p class='numberSize'>7</p></button></td>
+    <td><button id="button8" value='8'><p class='numberSize'>8</p></button></td>
+    <td><button id="button9" value='9'><p class='numberSize'>9</p></button></td>    
     <tr>
-    <td><input type="button" value="*" id="buttonStar"></td>
-    <td><input type="button" value="0" id="button0"></td>
-    <td><input type="button" value="#" id="buttonPound"></td>
+    <td><button id="buttonStar" value='*'><p class='numberSize'>*</p></button></td>
+    <td><button id="button0" value='0'><p class='numberSize'>0</p></button></td> 
+    <td><button id="buttonPound" value='#'><p class='numberSize'>#</p></button></td>
     </tr>
+    <td><button id="call">Start Call</button></td>
+     <td><button id="buttonPlus" value='+'><p class='numberSize'>+</p></button></td>
+    <td><button id="hangup" class='peabody'>End Call</button></td>
     </table>
+    </div>
     </div>
 </div> 
     </div>
@@ -82,6 +90,7 @@
         if (confirm('Accept incoming call from ' + conn.parameters.From + '?')){
             connection=conn;
             conn.accept();
+             $('p-status').ejs('on call')
         }else{
             connection=conn;
             conn.ignore();
@@ -90,10 +99,10 @@
 
         // Register an event handler for when a call ends for any reason
         Twilio.Device.disconnect(function(connection) {
-            console.log('call disconnected')
+        $('p-status').ejs('Call Disconneted')
         $('#hangup').click(function() {
             Twilio.Device.disconnectAll();
-            $('p').ejs('Call Disconneted')
+            
         });
 });
              $("#call").click(function() {  
@@ -111,7 +120,7 @@
          //     $('#dialpad').toggle();
          //      }
 
-   $.each(['0','1','2','3','4','5','6','7','8','9','star','pound'], function(index, value) { 
+   $.each(['0','1','2','3','4','5','6','7','8','9','star','pound','plus'], function(index, value) { 
         $('#button' + value).click(function(){ 
             if(connection) {
                 if (value=='star')
@@ -121,6 +130,8 @@
                 else
                     connection.sendDigits(value)
                 return false;
+            } else {
+             $('.form-control').val($('.form-control').val() + value)
             } 
             });
     });
@@ -128,14 +139,12 @@
     </script>
 
 
-<div class='phonea'><p class='text'> hello world this box will have the clients information for the call center agent to view :) </p></div>
-</div>
 </div>
 
 <!-- <input type="button" id="hangup" value="Hangup Call" style="display:;"/> -->
    
 
-<div class="col-md-9">
+<div class='script'>
 
     <div class='center-block'>
 <a ui-sref="route1" class='image'><img src='http://littlegiantladders.com/skin/frontend/default/littlegiant/images/category/home/MultiUse.png'></a>

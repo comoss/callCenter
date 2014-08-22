@@ -8,11 +8,18 @@ body{
 .btn-primary{
     position:fixed;
     width: 5%;
-    border-radius: 0;
+    height: 100%;
     }
 
+#dialpad {
+	margin: 1em;
+}
 
-
+.script {
+	max-width: 60%;
+	margin-right:22%;
+	margin-left: 18%;
+}
 .active {
 	margin-left: 6em;
 }
@@ -50,9 +57,8 @@ body{
 	margin-top: 2em;
 }
 
-.col-md-9 {
-margin-left: 14em;
-
+.nav-pills {
+	padding:.5em;
 }
 
 .text {
@@ -61,6 +67,14 @@ margin-left: 14em;
 
 #hangup {
 	margin-left: .5em;
+	height: 4em;
+	width: 6em;
+	margin: .25em;
+	background-color: white;
+	border-color: #428bca;
+	color: #428bca;
+}
+
 }
 
 p {
@@ -77,85 +91,142 @@ p {
 	margin-left: 4em;
 }
 
+.numberSize {
+	font-style: bold;
+	font-size: 1.5em;
+	margin-top: .4em;
+}
+
 #button1 { 
-	height: 2em;
-	width: 3em;
+	height: 4em;
+	width: 6em;
 	margin: .25em;
+	background-color: #428bca;
+	border-color: #428bca;
+	color:white;
+
 }
 #button2 { 
-	height: 2em;
-	width: 3em;
+	height: 4em;
+	width: 6em;
 	margin: .25em;
+	background-color: #428bca;
+	border-color: #428bca;
+	color:white;
 }
 #button3 { 
-	height: 2em;
-	width: 3em;
+	height: 4em;
+	width: 6em;
 	margin: .25em;
+	background-color: #428bca;
+	border-color: #428bca;
+	color:white;
 }
 #button4 { 
-	height: 2em;
-	width: 3em;
+	height: 4em;
+	width: 6em;
 	margin: .25em;
+	background-color: #428bca;
+	border-color: #428bca;
+	color:white;
 }
 #button5 { 
-	height: 2em;
-	width: 3em;
+	height: 4em;
+	width: 6em;
 	margin: .25em;
+	background-color: #428bca;
+	border-color: #428bca;
+	color:white;
 }
 #button6 { 
-	height: 2em;
-	width: 3em;
+	height: 4em;
+	width: 6em;
 	margin: .25em;
+	background-color: #428bca;
+	border-color: #428bca;
+	color:white;
 }
 #button7 { 
-	height: 2em;
-	width: 3em;
+	height: 4em;
+	width: 6em;
 	margin: .25em;
+	background-color: #428bca;
+	border-color: #428bca;
+	color:white;
 }
 #button8 { 
-	height: 2em;
-	width: 3em;
+	height: 4em;
+	width: 6em;
 	margin: .25em;
+	background-color: #428bca;
+	border-color: #428bca;
+	color:white;
 }
 #button9 { 
-	height: 2em;
-	width: 3em;
+	height: 4em;
+	width: 6em;
 	margin: .25em;
+	background-color: #428bca;
+	border-color: #428bca;
+	color:white;
 }
 #button0 { 
-	height: 2em;
-	width: 3em;
+	height: 4em;
+	width: 6em;
 	margin: .25em;
+	background-color: #428bca;
+	border-color: #428bca;
+	color:white;
 }
 #buttonStar { 
-	height: 2em;
-	width: 3em;
+	height: 4em;
+	width: 6em;
 	margin: .25em;
+	background-color: #428bca;
+	border-color: #428bca;
+	color:white;
 }
 #buttonPound { 
-	height: 2em;
-	width: 3em;
+	height: 4em;
+	width: 6em;
 	margin: .25em;
+	background-color: #428bca;
+	border-color: #428bca;
+	color:white;
 }
 
-#dialpad {
-	width: 11.25em;
-	margin-left: 5em;
+#buttonPlus { 
+	height: 4em;
+	width: 6em;
+	margin: .25em;
+	background-color: #428bca;
+	border-color: #428bca;
+	color:white;
 }
 
-#tocall {
-	position: top;
+.innerDiv {
+	width:15em;
+}
+
+
+.tocall {
+	float: left;
+	margin-bottom: .5em;
 }
 
 .image {
 	display: inline-block;
-	margin-left: 3em;
+	margin-left: .5em;
 }
 
 #call {
-	position: top;
-	margin-left: .5em;
-	margin-bottom: .5em;
+	height: 4em;
+	width: 6em;
+	margin: .25em;
+	background-color: white;
+	border-color: #428bca;
+	color: #428bca;
+}
 }
 
 .center-block {
@@ -166,6 +237,12 @@ p {
 
 .darkbox {
 	max-width: auto;
+}
+
+.form-control {
+	width: 19em;
+	float: left;
+	margin-left: 1.25em;
 }
 /* {
    border: 1px solid red !important;
