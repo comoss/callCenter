@@ -1,8 +1,8 @@
-var callCenter = angular.module('callCenter', ["ui.router"])
+var callCenter = angular.module('callCenter', ["ui.router", "firebase"])
     callCenter.config(function($stateProvider, $urlRouterProvider){
       
       
-      $urlRouterProvider.otherwise("/")
+      $urlRouterProvider.otherwise("/login")
       
       $stateProvider
         .state('route1', {
@@ -41,6 +41,10 @@ var callCenter = angular.module('callCenter', ["ui.router"])
         .state('route3', {
             url: "/route3",
             templateUrl: "html/route3.html"
+        })
+         .state('login', {
+            url: "/login",
+            templateUrl: "html/loginpage.html"
         })
         //   .state('route2.list', {
         //       url: "/list",

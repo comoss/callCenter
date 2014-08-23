@@ -1,15 +1,16 @@
 // Require the twilio and express modules
 var twilio = require('twilio'),
     express = require('express');
- 
+    firebase = require("firebase");
 // Create an express application
 var app = express();
+
 
 app.use(express.static('/views')) 
 app.use('/scripts', express.static(__dirname + '/scripts'));
 app.use('/styles', express.static(__dirname + '/styles'));
 app.use('/html', express.static(__dirname + '/html'));
-app.use('/html', express.static(__dirname + '/html'));
+
 
 
 

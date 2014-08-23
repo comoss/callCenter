@@ -17,6 +17,7 @@
     "angular": "~1.2.21",
     "bootstrap": "~3.2.0",
     "firebase": "~1.0.21",
-    "angularfire": "~0.8.0"
+    "angularfire": "~0.8.0",
+    "firebase-simple-login": "~1.6.3"
   }
 }
