@@ -29,10 +29,9 @@
         
         
         
-        
             <div class='innerDiv'>
                 <div class='tocall'>
-                    <form role='form'><input type="text" class='form-control' value="+"></form>
+                    <form role='form'><input type="text" class='form-control' value="" placeholder='+18012279533'></form>
                 </div>
 
                        <div id="dialpad">
@@ -55,13 +54,13 @@
                         <td><button id="button0" value='0'><p class='numberSize'>0</p></button></td> 
                         <td><button id="buttonPound" value='#'><p class='numberSize'>#</p></button></td>
                         </tr>
-                        <td></td>
+                        <td><button id="call"><p>Start Call</p></button></td>
                          <td><button id="buttonClear" value=''><p class='numberSize'>Clear</p></button></td>
-                        <td></td>
+                        <td><button id="hangup" class='peabody'><p>End Call</p></button></td>
                         </table>
 
-                        <button id="call"><p>Start Call</p></button>
-                        <button id="hangup" class='peabody'><p>End Call</p></button>
+                        
+                        
 
                         </div>  
                 </div>
@@ -72,6 +71,8 @@
 
 
 </div>
+
+<div>
     <!-- include the Twilio Client JavaScript SDK -->
     <script src="http://static.twilio.com/libs/twiliojs/1.1/twilio.min.js"></script>
     <!-- include jQuery to make DOM manipulation and event handling nicer -->
@@ -95,7 +96,6 @@
         if (confirm('Accept incoming call from ' + conn.parameters.From + '?')){
             connection=conn;
             conn.accept();
-             $('p-status').ejs('on call')
         }else{
             connection=conn;
             conn.ignore();
@@ -104,28 +104,20 @@
 
         // Register an event handler for when a call ends for any reason
         Twilio.Device.disconnect(function(connection) {
-        $('p-status').ejs('Call Disconneted')
         $('#hangup').click(function() {
-            Twilio.Device.disconnectAll();
-            
-        });
+            Twilio.Device.disconnectAll();   
+        })
 });
              $("#call").click(function() {  
         params = { "tocall" : $('#tocall').val()};
         connection =  Twilio.Device.connect({
                  CallerId:'+18012279533', // Replace this value with a verified Twilio number:
                                           // https://www.twilio.com/user/account/phone-numbers/verified
-                  PhoneNumber:$('#tocall').val() //pass in the value of the text field
+                  PhoneNumber:$('.form-control').val() //pass in the value of the text field
          });
     });
 
-         // function toggleCallStatus(){
-         //     $('#call').toggle();
-         //     $('#hangup').toggle();
-         //     $('#dialpad').toggle();
-         //      }
-
-   $.each(['0','1','2','3','4','5','6','7','8','9','star','pound','plus'], function(index, value) { 
+   $.each(['0','1','2','3','4','5','6','7','8','9','star','pound'], function(index, value) { 
         $('#button' + value).click(function(){ 
             if(connection) {
                 if (value=='star')
