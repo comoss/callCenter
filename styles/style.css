@@ -73,6 +73,7 @@ body{
 	background-color: white;
 	border-color: #428bca;
 	color: #428bca;
+	
 }
 
 }
@@ -195,7 +196,7 @@ p {
 	color:white;
 }
 
-#buttonPlus { 
+#buttonClear { 
 	height: 4em;
 	width: 6em;
 	margin: .25em;

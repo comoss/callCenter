@@ -14,7 +14,7 @@
 
 <nav class='navbar-default' role='navigation'>
     <ul class="nav nav-pills">
-      <li class="active"><a href="#">Home</a></li>
+      <li class="active"><a href="#/home">Home</a></li>
       <li><a href="#">Will add</a></li>
       <li><a href="#">Stuff Later :)</a></li>
     </ul>
@@ -55,10 +55,14 @@
                         <td><button id="button0" value='0'><p class='numberSize'>0</p></button></td> 
                         <td><button id="buttonPound" value='#'><p class='numberSize'>#</p></button></td>
                         </tr>
-                        <td><button id="call">Start Call</button></td>
-                         <td><button id="buttonPlus" value='+'><p class='numberSize'>+</p></button></td>
-                        <td><button id="hangup" class='peabody'>End Call</button></td>
+                        <td></td>
+                         <td><button id="buttonClear" value=''><p class='numberSize'>Clear</p></button></td>
+                        <td></td>
                         </table>
+
+                        <button id="call"><p>Start Call</p></button>
+                        <button id="hangup" class='peabody'><p>End Call</p></button>
+
                         </div>  
                 </div>
         </div> 
@@ -145,17 +149,7 @@
 <!-- <input type="button" id="hangup" value="Hangup Call" style="display:;"/> -->
    
 
-<div class='script'>
-
-        <div class='center-block'>
-                <a ui-sref="route1" class='image'><img src='http://littlegiantladders.com/skin/frontend/default/littlegiant/images/category/home/MultiUse.png'></a>
-                <a ui-sref="route2" class='image'><img src='http://littlegiantladders.com/skin/frontend/default/littlegiant/images/category/home/MultiUse.png'></a>
-                <a ui-sref="route3" class='image'><img src='http://littlegiantladders.com/skin/frontend/default/littlegiant/images/category/home/Stepladder.png'></a>
-        </div>
-    
     <div ui-view></div>
-
-</div> 
 
 
     <!-- AngularJS -->

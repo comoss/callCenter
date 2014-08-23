@@ -19,11 +19,6 @@ var callCenter = angular.module('callCenter', ["ui.router", "firebase"])
               templateUrl: "html/route1.step2.step3.html",
               
           })
-            .state('blank', {
-              url: "/",
-              templateUrl: "html/blank.html"
-          })
-          
         .state('route2', {
             url: "/route2",
             templateUrl: "html/route2.html"
@@ -36,7 +31,10 @@ var callCenter = angular.module('callCenter', ["ui.router", "firebase"])
             url: "/route2/hi",
             templateUrl: "html/route2.step2.html"
         })
-
+              .state('home', {
+            url: "/home",
+            templateUrl: "html/products.html"
+        })
 
         .state('route3', {
             url: "/route3",
@@ -46,6 +44,10 @@ var callCenter = angular.module('callCenter', ["ui.router", "firebase"])
             url: "/login",
             templateUrl: "html/loginpage.html"
         })
+         //  .state('products', {
+         //    url: "/products",
+         //    templateUrl: "html/products.html"
+         // })
         //   .state('route2.list', {
         //       url: "/list",
         //       templateUrl: "route2.list.html",
