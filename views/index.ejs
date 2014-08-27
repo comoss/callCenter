@@ -27,8 +27,6 @@
       <!-- display call status in this paragraph tag -->
         <!-- <p class='peabody1' id='p-status'>   Awaiting incoming call...</p> -->
         
-        
-        
             <div class='innerDiv'>
                 <div class='tocall'>
                     <form role='form'><input type="text" class='form-control' value="" placeholder='+18012279533'></form>
@@ -58,13 +56,26 @@
                          <td><button id="buttonClear" value=''><p class='numberSize'>Clear</p></button></td>
                         <td><button id="hangup" class='peabody'><p>End Call</p></button></td>
                         </table>
-
-                        
-                        
-
                         </div>  
-                </div>
-        </div> 
+           </div> 
+    <div ng-controller="ProfileCtrl">
+    <!-- $id is a special meta variable containing the object's key in Firebase.
+         In this case, it would be "physicsmarie" -->
+    <h3>Edit {{profile.$id}}</h3>
+    <!-- calling $save on the synchronized object pushes all data back to Firebase -->
+    <form ng-submit="profile.$save()">
+      <label>Name:</label>
+      <input type="text" ng-model="profile.name" />
+      <label>Phone:</label>
+      <input type="text" ng-model="profile.phone" />
+      <label>Email:</label>
+      <input type="text" ng-model="profile.email" />
+      <label>City:</label>
+      <input type="text" ng-model="profile.city" />
+      <button type="submit">Save Changes</button>
+    </form>
+</div>
+
     </div>
   </div>
 </div>
@@ -133,15 +144,17 @@
             });
     });
        
+    
+
     </script>
 
 
 </div>
 
 <!-- <input type="button" id="hangup" value="Hangup Call" style="display:;"/> -->
-   
 
-    <div ui-view></div>
+
+    <div ui-view class='main-view'></div>
 
 
     <!-- AngularJS -->
@@ -158,6 +171,7 @@
     <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
     <script src='scripts/apps.js'></script>
     <script src='scripts/controller.js'></script>
+    <script src='scripts/logInCtrl.js'></script>
  
     </body>
 </html>

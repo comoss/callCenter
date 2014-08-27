@@ -5,6 +5,19 @@ html{
 body{
     height:100% 
 }
+
+
+.user{
+	margin-left: 10em;
+}
+
+.main-view {
+ max-width: 60%;
+ margin-left: 18%;
+ margin-right: 22%;
+ margin-top: 7em;
+}
+
 .btn-primary{
     position:fixed;
     width: 5%;
@@ -73,7 +86,7 @@ body{
 	background-color: white;
 	border-color: #428bca;
 	color: #428bca;
-	
+
 }
 
 }
