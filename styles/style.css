@@ -6,6 +6,11 @@ body{
     height:100% 
 }
 
+.client {
+	float: right;
+	max-width: 50%;
+	display: inline-block;
+}
 
 .user{
 	margin-left: 10em;
@@ -226,6 +231,8 @@ p {
 .tocall {
 	float: left;
 	margin-bottom: .5em;
+display: inline-block;
+max-width: 50%;
 }
 
 .image {
