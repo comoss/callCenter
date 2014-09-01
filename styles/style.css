@@ -256,7 +256,15 @@ max-width: 50%;
 	border-color: #428bca;
 	color: #428bca;
 }
+
+#toCall {
+	margin-left: 1.25em;
+	width:19em;
 }
+#notes{
+	width:60em;
+}
+
 
 .center-block {
 	 display: block;
@@ -269,9 +277,8 @@ max-width: 50%;
 }
 
 .form-control {
-	width: 19em;
+	width: 15em;
 	float: left;
-	margin-left: 1.25em;
 }
 /* {
    border: 1px solid red !important;

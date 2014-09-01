@@ -60,12 +60,12 @@ var callCenter = angular.module('callCenter', ["ui.router", "firebase"])
     })
 
 callCenter.controller("SampleCtrl", function($scope, $firebase) {
-  var ref = new Firebase("https://callcenter.firebaseio.com/Leads");
+  var ref = new Firebase("https://callcenter.firebaseio.com/Company/Leads");
   var sync = $firebase(ref);
-  lead = sync.$asArray();
+  leads = sync.$asArray();
 
-  $scope.addMessage = function(name, phone, location, notes) {
-    lead.$add({name: name}, {phone: phone}, {location: location}, {notes: notes});
+  $scope.addMessage = function(Lead, name, phone, email, location, notes) {
+    leads.$add({Lead: Lead}, {name: name}, {phone: phone}, {email:email}, {location: location}, {notes: notes});
     
   }
 });

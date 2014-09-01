@@ -29,7 +29,7 @@
         
             <div class='innerDiv'>
                 <div class='tocall'>
-                    <form role='form'><input type="text" class='form-control' value="" placeholder='+18012279533'></form>
+                    <form role='form'><input type="text" id='toCall' class='form-control' value="" placeholder='+18012279533'></form>
                 </div>
 
                        <div id="dialpad">
@@ -67,12 +67,13 @@
 </div> -->
   
     <!-- push a new message into the array -->
-    <form ng-submit="addMessage(newMessage)">
-      <input ng-model="newMessage.name" />
-      <input ng-model="newMessage.phone" />
-      <input ng-model="newMessage.location" />
-      <input ng-model="newMessage.notes" />
-      <button type="submit">add message</button>
+    <form ng-submit="addMessage(newMessage)" role='form'>
+      <input ng-model="newMessage.name" placeholder='Full Name' class='form-control' />
+      <input ng-model="newMessage.phone" placeholder='+18015555555' class='form-control'/>
+      <input ng-model="newMessage.email"placeholder='example@example.com' class='form-control' />
+      <input ng-model="newMessage.location"placeholder='City, State' class='form-control' />
+      <textarea ng-model="newMessage.notes"placeholder='Notes' class='form-control' rows='2' id='notes' /></textarea>
+      <button type="submit" class="btn btn-default" id='leadBTN'>Make New Lead</button>
     </form>
 </div>
 
@@ -109,6 +110,7 @@
         if (confirm('Accept incoming call from ' + conn.parameters.From + '?')){
             connection=conn;
             conn.accept();
+            console.log(conn.parameters.From)
         }else{
             connection=conn;
             conn.ignore();
