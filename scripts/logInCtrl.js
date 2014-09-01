@@ -1,4 +1,27 @@
+// var app = angular.module("callCenter", ["ui.router", "firebase"]);
 
+
+
+
+
+
+
+// var dataBase = angular.module("callcenter", ["firebase"]);
+//   dataBase.controller('dataBase' ['$firebase', '$scope', function($firebase) {
+    
+//      var ref = new Firebase('https://callcenter.firebaseio.com/Company/Leads');
+//      var sync = $firebase(ref);
+//      var client = sync.$asArray();
+
+//      client.add({name: ''}, {phone: ''})
+
+//       // $firebase.name = '';
+//       // $firebase.phone = '+';
+//       // $firebase.location = '';
+//       // $firebase.notes = '';
+
+
+//   }]) 
 
  
 

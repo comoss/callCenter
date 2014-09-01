@@ -59,20 +59,32 @@ var callCenter = angular.module('callCenter', ["ui.router", "firebase"])
         //   })
     })
 
+callCenter.controller("SampleCtrl", function($scope, $firebase) {
+  var ref = new Firebase("https://callcenter.firebaseio.com/Leads");
+  var sync = $firebase(ref);
+  lead = sync.$asArray();
 
-var dataBase = angular.module("dataBase", ["firebase"]);
-  dataBase.controller('dataBase' ['$firebase', '$scope', function($firebase) {
+  $scope.addMessage = function(name, phone, location, notes) {
+    lead.$add({name: name}, {phone: phone}, {location: location}, {notes: notes});
     
-     var ref = new Firebase('https://callcenter.firebaseio.com/Company/Leads');
-     var sync = $firebase(ref);
-     var client = sync.$asArray();
-
-     client.add({name: ''}, {phone: ''})
-
-      // $firebase.name = '';
-      // $firebase.phone = '+';
-      // $firebase.location = '';
-      // $firebase.notes = '';
+  }
+});
 
 
-  }]) 
+
+// var dataBase = angular.module("dataBase", ["firebase"]);
+//   dataBase.controller('dataBase' ['$firebase', '$scope', function($firebase) {
+    
+//      var ref = new Firebase('https://callcenter.firebaseio.com/Company/Leads');
+//      var sync = $firebase(ref);
+//      var client = sync.$asArray();
+
+//      client.add({name: ''}, {phone: ''})
+
+//       // $firebase.name = '';
+//       // $firebase.phone = '+';
+//       // $firebase.location = '';
+//       // $firebase.notes = '';
+
+
+//   }]) 

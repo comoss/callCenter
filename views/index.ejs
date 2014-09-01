@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     <title>callCenter</title>
 </head>
-<body>
+<body ng-controller="SampleCtrl">
    
 
            <button class="btn btn-primary" data-toggle="modal" data-target=".bs-modal-lg"><img id='phoneImg'  src="http://simpleicon.com/wp-content/uploads/phone-symbol-2.png"></button>
@@ -58,33 +58,22 @@
                         </table>
                         </div>  
            </div> 
-
+<!-- <div >
 <input type='text' id='nameInput' ng-model='name' placeholder='Name'>
  <input type='text' id='messageInput' ng-model='notes' placeholder='Message'>
  <input type='number' id='messageInput' ng-model='phone'>
  <input type='text' id='messageInput' ng-model='location' placeholder='City, State'>
  <div id='messagesDiv'></div>
-
-
-
-
-          <!--  <div ng-model='profile'>{{profile}}</div> -->
-     
-    <!-- <form ng-submit="profile.$save()">
-        <label>Lead:</label>
-      <input type="text" ng-model="lead" />
-      <label>Name:</label>
-      <input type="text" ng-model="profile.name" />
-      <label>Phone:</label>
-      <input type="text" ng-model="profile.phone" />
-      <label>Email:</label>
-      <input type="text" ng-model="profile.email" />
-      <label>City:</label>
-      <input type="text" ng-model="profile.city" />
-       <label>Notes:</label>
-      <textarea class='form-control' rows='3' ng-model="profile.notes"></textarea>
-      <button type="submit">Save Changes</button>
-    </form> -->
+</div> -->
+  
+    <!-- push a new message into the array -->
+    <form ng-submit="addMessage(newMessage)">
+      <input ng-model="newMessage.name" />
+      <input ng-model="newMessage.phone" />
+      <input ng-model="newMessage.location" />
+      <input ng-model="newMessage.notes" />
+      <button type="submit">add message</button>
+    </form>
 </div>
 
 
