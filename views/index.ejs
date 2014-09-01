@@ -15,7 +15,7 @@
 <nav class='navbar-default' role='navigation'>
     <ul class="nav nav-pills">
       <li class="active"><a href="#/home">Home</a></li>
-      <li><a href="#">Will add</a></li>
+      <li><a href="#/leads">Search Leads</a></li>
       <li><a href="#">Stuff Later :)</a></li>
     </ul>
 </nav>
@@ -58,18 +58,19 @@
                         </table>
                         </div>  
            </div> 
-           <div ng-model='profile'>{{profile}}</div>
+
+<input type='text' id='nameInput' ng-model='name' placeholder='Name'>
+ <input type='text' id='messageInput' ng-model='notes' placeholder='Message'>
+ <input type='number' id='messageInput' ng-model='phone'>
+ <input type='text' id='messageInput' ng-model='location' placeholder='City, State'>
+ <div id='messagesDiv'></div>
 
 
 
-    <div ng-controller="ProfileCtrl" class='client'>
-    <!-- $id is a special meta variable containing the object's key in Firebase.
-         In this case, it would be "physicsmarie" -->
-    <h3>
-<label>
-        {{profile}}</h3>
-    <!-- calling $save on the synchronized object pushes all data back to Firebase -->
-    <form ng-submit="profile.$save()">
+
+          <!--  <div ng-model='profile'>{{profile}}</div> -->
+     
+    <!-- <form ng-submit="profile.$save()">
         <label>Lead:</label>
       <input type="text" ng-model="lead" />
       <label>Name:</label>
@@ -83,7 +84,7 @@
        <label>Notes:</label>
       <textarea class='form-control' rows='3' ng-model="profile.notes"></textarea>
       <button type="submit">Save Changes</button>
-    </form>
+    </form> -->
 </div>
 
 
@@ -159,11 +160,6 @@
     
 
     </script>
-
-
-
-
-<!-- <input type="button" id="hangup" value="Hangup Call" style="display:;"/> -->
 
 
     <div ui-view class='main-view'></div>

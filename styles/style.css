@@ -16,11 +16,19 @@ body{
 	margin-left: 10em;
 }
 
+.inputs {
+	margin-left: 10%;
+}
+
 .main-view {
  max-width: 60%;
  margin-left: 18%;
  margin-right: 22%;
  margin-top: 7em;
+}
+
+#messagesDiv {
+	margin-left: 20%
 }
 
 .btn-primary{

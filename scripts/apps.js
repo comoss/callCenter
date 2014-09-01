@@ -1,8 +1,7 @@
 var callCenter = angular.module('callCenter', ["ui.router", "firebase"])
     callCenter.config(function($stateProvider, $urlRouterProvider){
       
-      
-      $urlRouterProvider.otherwise("/login")
+      $urlRouterProvider.otherwise("/products")
       
       $stateProvider
         .state('route1', {
@@ -17,7 +16,6 @@ var callCenter = angular.module('callCenter', ["ui.router", "firebase"])
           .state('route1.route2.router3', {
               url: "/router3",
               templateUrl: "html/route1.step2.step3.html",
-              
           })
         .state('route2', {
             url: "/route2",
@@ -44,6 +42,10 @@ var callCenter = angular.module('callCenter', ["ui.router", "firebase"])
             url: "/login",
             templateUrl: "html/loginpage.html"
         })
+         .state('leads', {
+            url: "/leads",
+            templateUrl: "html/leads.html"
+        })
          //  .state('products', {
          //    url: "/products",
          //    templateUrl: "html/products.html"
@@ -55,10 +57,22 @@ var callCenter = angular.module('callCenter', ["ui.router", "firebase"])
         //         $scope.things = ["A", "Set", "Of", "Things"];
         //       }
         //   })
-
-
-
-
-
-
     })
+
+
+var dataBase = angular.module("dataBase", ["firebase"]);
+  dataBase.controller('dataBase' ['$firebase', '$scope', function($firebase) {
+    
+     var ref = new Firebase('https://callcenter.firebaseio.com/Company/Leads');
+     var sync = $firebase(ref);
+     var client = sync.$asArray();
+
+     client.add({name: ''}, {phone: ''})
+
+      // $firebase.name = '';
+      // $firebase.phone = '+';
+      // $firebase.location = '';
+      // $firebase.notes = '';
+
+
+  }]) 
