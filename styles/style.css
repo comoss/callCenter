@@ -21,8 +21,8 @@ body{
 }
 
 .main-view {
- max-width: 60%;
- margin-left: 18%;
+ max-width: 70%;
+ margin-left: 12%;
  margin-right: 22%;
  margin-top: 7em;
 }
@@ -265,6 +265,12 @@ max-width: 50%;
 	width:60em;
 }
 
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 120%; 
+    height: 50em;
+    margin-bottom: 5em;
+}
 
 .center-block {
 	 display: block;

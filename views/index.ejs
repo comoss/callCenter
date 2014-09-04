@@ -1,12 +1,12 @@
 <!doctype html>
 <html ng-app="callCenter">
 <head>
-   
+   <link rel="stylesheet" type="text/css" href="http://angular-ui.github.com/ng-grid/css/ng-grid.css" />
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     <title>callCenter</title>
 </head>
-<body ng-controller="SampleCtrl">
+<body ng-controller="LeadsCtrl">
    
 
            <button class="btn btn-primary" data-toggle="modal" data-target=".bs-modal-lg"><img id='phoneImg'  src="http://simpleicon.com/wp-content/uploads/phone-symbol-2.png"></button>
@@ -67,12 +67,12 @@
 </div> -->
   
     <!-- push a new message into the array -->
-    <form ng-submit="addMessage(newMessage)" role='form'>
-      <input ng-model="newMessage.name" placeholder='Full Name' class='form-control' />
-      <input ng-model="newMessage.phone" placeholder='+18015555555' class='form-control'/>
-      <input ng-model="newMessage.email"placeholder='example@example.com' class='form-control' />
-      <input ng-model="newMessage.location"placeholder='City, State' class='form-control' />
-      <textarea ng-model="newMessage.notes"placeholder='Notes' class='form-control' rows='2' id='notes' /></textarea>
+    <form ng-submit="addLead(newLead)" role='form'>
+      <input ng-model="newLead.name" placeholder='Full Name' class='form-control' />
+      <input ng-model="newLead.phone" placeholder='+18015555555' class='form-control'/>
+      <input ng-model="newLead.email"placeholder='example@example.com' class='form-control' />
+      <input ng-model="newLead.location"placeholder='City, State' class='form-control' />
+      <textarea ng-model="newLead.notes"placeholder='Notes' class='form-control' rows='2' id='notes' /></textarea>
       <button type="submit" class="btn btn-default" id='leadBTN'>Make New Lead</button>
     </form>
 </div>
@@ -106,16 +106,15 @@
 
         var connection=null;
 
-         Twilio.Device.incoming(function (conn) {
-        if (confirm('Accept incoming call from ' + conn.parameters.From + '?')){
-            connection=conn;
+        Twilio.Device.incoming(function (conn) {
+          if (confirm('Accept incoming call from ' + conn.parameters.From + '?')){
+            connection = conn;
             conn.accept();
-            console.log(conn.parameters.From)
-        }else{
+          } else{
             connection=conn;
             conn.ignore();
-        }
-    });
+          }
+        });
 
         // Register an event handler for when a call ends for any reason
         Twilio.Device.disconnect(function(connection) {
@@ -172,5 +171,10 @@
     <script src='scripts/controller.js'></script>
     <script src='scripts/logInCtrl.js'></script>
  
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+        <script type="text/javascript" src="http://angular-ui.github.com/ng-grid/lib/ng-grid.debug.js"></script>
+
     </body>
 </html>

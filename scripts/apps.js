@@ -1,4 +1,4 @@
-var callCenter = angular.module('callCenter', ["ui.router", "firebase"])
+var callCenter = angular.module('callCenter', ["ui.router", "firebase", "ngGrid"])
     callCenter.config(function($stateProvider, $urlRouterProvider){
       
       $urlRouterProvider.otherwise("/products")
@@ -59,32 +59,36 @@ var callCenter = angular.module('callCenter', ["ui.router", "firebase"])
         //   })
     })
 
-callCenter.controller("SampleCtrl", function($scope, $firebase) {
+callCenter.controller("LeadsCtrl", function($scope, $firebase) {
   var ref = new Firebase("https://callcenter.firebaseio.com/Company/Leads");
   var sync = $firebase(ref);
-  leads = sync.$asArray();
+  $scope.leads = sync.$asArray();
 
-  $scope.addMessage = function(Lead, name, phone, email, location, notes) {
-    leads.$add({Lead: Lead}, {name: name}, {phone: phone}, {email:email}, {location: location}, {notes: notes});
+  $scope.addLead = function(lead) {
+    $scope.leads.$add(lead);
     
   }
 });
 
+callCenter.controller('gridCtrl', function($scope) {
+    $scope.gridOptions = { data: 'leads',
+      height: '110px',
+      sortInfo: {fields: ['Name', 'Phone', 'Location', 'notes'], directions: ['asc']},
+      columnDefs: [
+        {field: 'name', displayName: 'Name', width: '150px'},
+        {field: 'phone', displayName: 'Phone', width: '110px'},
+        {field: 'email', displayName: 'Email', width: '200px'},
+        {field: 'location', displayName: 'Location', width:'300px'},
+        {field: 'notes', displayName: 'Notes', width:'375px'},
+      ]
+
+};
+
+});
 
 
-// var dataBase = angular.module("dataBase", ["firebase"]);
-//   dataBase.controller('dataBase' ['$firebase', '$scope', function($firebase) {
-    
-//      var ref = new Firebase('https://callcenter.firebaseio.com/Company/Leads');
-//      var sync = $firebase(ref);
-//      var client = sync.$asArray();
-
-//      client.add({name: ''}, {phone: ''})
-
-//       // $firebase.name = '';
-//       // $firebase.phone = '+';
-//       // $firebase.location = '';
-//       // $firebase.notes = '';
-
-
-//   }]) 
+// [{name: "Moroni", age: 50},
+//                      {name: "Tiancum", age: 43},  
+//                      {name: "Jacob", age: 27},
+//                      {name: "Nephi", age: 29},
+//                      {name: "Enos", age: 34}];
