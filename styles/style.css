@@ -257,6 +257,12 @@ max-width: 50%;
 	color: #428bca;
 }
 
+.clientLive {
+	width: 50%;
+	float: right;
+	display: inline-block;
+}
+
 #toCall {
 	margin-left: 1.25em;
 	width:19em;

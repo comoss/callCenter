@@ -24,8 +24,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class='phone'>
-      <!-- display call status in this paragraph tag -->
-        <!-- <p class='peabody1' id='p-status'>   Awaiting incoming call...</p> -->
+      <div class='clientLive'>name: {{personCalling.name}}  phone: {{personCalling.phone}} email: {{personCalling.email}} notes: {{personCalling.notes}}</div>
         
             <div class='innerDiv'>
                 <div class='tocall'>
@@ -56,15 +55,11 @@
                          <td><button id="buttonClear" value=''><p class='numberSize'>Clear</p></button></td>
                         <td><button id="hangup" class='peabody'><p>End Call</p></button></td>
                         </table>
+                        
                         </div>  
            </div> 
-<!-- <div >
-<input type='text' id='nameInput' ng-model='name' placeholder='Name'>
- <input type='text' id='messageInput' ng-model='notes' placeholder='Message'>
- <input type='number' id='messageInput' ng-model='phone'>
- <input type='text' id='messageInput' ng-model='location' placeholder='City, State'>
- <div id='messagesDiv'></div>
-</div> -->
+
+</div>
   
     <!-- push a new message into the array -->
     <form ng-submit="addLead(newLead)" role='form'>
@@ -78,7 +73,6 @@
 </div>
 
 
-
     </div>
   </div>
 </div>
@@ -87,6 +81,8 @@
 </div>
 
 <div>
+   
+
 
     <div ui-view class='main-view'></div>
 
@@ -110,11 +106,9 @@
     <script src='scripts/apps.js'></script>
     <script src='scripts/controller.js'></script>
     <script src='scripts/logInCtrl.js'></script>
- 
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
-        <script type="text/javascript" src="http://angular-ui.github.com/ng-grid/lib/ng-grid.debug.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+    <script src="http://angular-ui.github.com/ng-grid/lib/ng-grid.debug.js"></script>
 
     </body>
 </html>
