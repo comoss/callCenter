@@ -1,34 +1,34 @@
 var callCenter = angular.module('callCenter', ["ui.router", "firebase", "ngGrid"])
     callCenter.config(function($stateProvider, $urlRouterProvider){
       
-      $urlRouterProvider.otherwise("/products")
+      $urlRouterProvider.otherwise("/login")
       
       $stateProvider
-        .state('route1', {
-            url: "/route1",
+        .state('home.route1', {
+            url: "/home/route1",
             templateUrl: "html/route1.html"
          })
-          .state('route1.route2', {
-              url: "/route2",
-              templateUrl: "html/route1.step2.html",
+        //   .state('route1.route2', {
+        //       url: "/route2",
+        //       templateUrl: "html/route1.step2.html",
                
-          })
-          .state('route1.route2.router3', {
-              url: "/router3",
-              templateUrl: "html/route1.step2.step3.html",
-          })
-        .state('route2', {
-            url: "/route2",
-            templateUrl: "html/route2.html"
-        })
-        .state('route2.step1', {
-            url: "/route2/step1",
-            templateUrl: "html/route2.step1.html"
-        })
-        .state('route2.step2', {
-            url: "/route2/step2",
-            templateUrl: "html/route2.step2.html"
-        })
+        //   })
+        //   .state('route1.route2.router3', {
+        //       url: "/router3",
+        //       templateUrl: "html/route1.step2.step3.html",
+        //   })
+        // .state('route2', {
+        //     url: "/route2",
+        //     templateUrl: "html/route2.html"
+        // })
+        // .state('route2.step1', {
+        //     url: "/route2/step1",
+        //     templateUrl: "html/route2.step1.html"
+        // })
+        // .state('route2.step2', {
+        //     url: "/route2/step2",
+        //     templateUrl: "html/route2.step2.html"
+        // })
         .state('home', {
             url: "/home",
             templateUrl: "html/products.html"
@@ -37,19 +37,16 @@ var callCenter = angular.module('callCenter', ["ui.router", "firebase", "ngGrid"
             url: "/route3",
             templateUrl: "html/route3.html"
         })
-         .state('login', {
-            url: "/login",
-            templateUrl: "html/loginpage.html"
-        })
          .state('leads', {
             url: "/leads",
             templateUrl: "html/leads.html",
             controller: 'gridCtrl'
         })
-         //  .state('products', {
-         //    url: "/products",
-         //    templateUrl: "html/products.html"
-         // })
+         .state('login', {
+            url: '/login',
+            templateUrl: '/html/login.html',
+            controller: 'LoginCtrl'
+        })
         //   .state('route2.list', {
         //       url: "/list",
         //       templateUrl: "route2.list.html",
@@ -80,9 +77,7 @@ var callCenter = angular.module('callCenter', ["ui.router", "firebase", "ngGrid"
 
         var twilioStuff = function(token){
               Twilio.Device.setup(token);
-              // Register an event handler to be called when there is an incoming
-              // call:
-
+  
               var connection=null;
 
               Twilio.Device.incoming(function (conn) {
@@ -90,13 +85,9 @@ var callCenter = angular.module('callCenter', ["ui.router", "firebase", "ngGrid"
                   $scope.fromNumber = conn.parameters.From;
                   for(var i = 0; i < $scope.leads.length; i++){
                     if($scope.leads[i].phone === $scope.fromNumber){
-                       $rootScope.test= 'esfsefsefsef';
-                      // console.log('herereerere');
-                      // console.log('Full Data is ', $scope.leads[i]);
                       $scope.$apply(function(){
                         $scope.personCalling = $scope.leads[i];
                       })
-                      
                     } else {
                       console.log('That number is not found');
                     }
@@ -111,9 +102,9 @@ var callCenter = angular.module('callCenter', ["ui.router", "firebase", "ngGrid"
 
               // Register an event handler for when a call ends for any reason
               Twilio.Device.disconnect(function(connection) {
-                $('#hangup').click(function() {
+                // $('#hangup').click(function() {
                   Twilio.Device.disconnectAll();   
-                })
+                // })
               });
 
               $("#call").click(function() {  
@@ -122,6 +113,12 @@ var callCenter = angular.module('callCenter', ["ui.router", "firebase", "ngGrid"
                   CallerId:'+18012279533', // Replace this value with a verified Twilio number:
                                         // https://www.twilio.com/user/account/phone-numbers/verified
                   PhoneNumber:$('.form-control').val() //pass in the value of the text field
+
+
+
+
+
+
                 });
               });
 
@@ -136,12 +133,14 @@ var callCenter = angular.module('callCenter', ["ui.router", "firebase", "ngGrid"
                           connection.sendDigits(value)
                       return false;
                   } else {
-                   $('.form-control').val($('.form-control').val() + value)
+                   $('#toCall').val($('#toCall').val() + value)
                   } 
                   });
               });
         }
 
+
+      
 
       });
 
@@ -158,5 +157,10 @@ var callCenter = angular.module('callCenter', ["ui.router", "firebase", "ngGrid"
             ]
 
       };
+
+
+  callCenter.controller('LoginCtrl', function ($scope, EnvironmentService) {
+    $scope.env = EnvironmentService.getEnv();
+  });
 
       });

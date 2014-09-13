@@ -10,6 +10,7 @@ app.use(express.static('/views'))
 app.use('/scripts', express.static(__dirname + '/scripts'));
 app.use('/styles', express.static(__dirname + '/styles'));
 app.use('/html', express.static(__dirname + '/html'));
+app.use('/app', express.static(__dirname + '/app'));
 
 
 

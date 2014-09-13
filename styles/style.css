@@ -6,6 +6,10 @@ body{
     height:100% 
 }
 
+p {
+	font-family: sans-serif;
+}
+
 .client {
 	float: right;
 	max-width: 50%;
@@ -20,12 +24,12 @@ body{
 	margin-left: 10%;
 }
 
-.main-view {
+/*.main-view {
  max-width: 70%;
  margin-left: 12%;
  margin-right: 22%;
  margin-top: 7em;
-}
+}*/
 
 #messagesDiv {
 	margin-left: 20%
@@ -261,14 +265,23 @@ max-width: 50%;
 	width: 50%;
 	float: right;
 	display: inline-block;
+	margin-top: 2em;
+	margin-right: 4em;
+	font-size: 2em;
+	font-family: sans-serif;
+}
+
+.currentClent {
+	margin: 1em;
+}
+#model_text {
+	width: 100%;
+
 }
 
 #toCall {
 	margin-left: 1.25em;
 	width:19em;
-}
-#notes{
-	width:60em;
 }
 
 .gridStyle {
@@ -280,17 +293,24 @@ max-width: 50%;
 
 .center-block {
 	 display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 .darkbox {
 	max-width: auto;
 }
 
+#leadBTN {
+	margin-top: 2em;
+	margin-bottom: 2em;
+	margin-left: 2em;
+}
+
 .form-control {
-	width: 15em;
-	float: left;
+	width: 24%;
+	display: inline-block;
+	margin: 0;
 }
 /* {
    border: 1px solid red !important;
