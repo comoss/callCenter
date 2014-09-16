@@ -1,13 +1,18 @@
 var callCenter = angular.module('callCenter', ["ui.router", "firebase", "ngGrid"])
     callCenter.config(function($stateProvider, $urlRouterProvider){
       
-      $urlRouterProvider.otherwise("/login")
+      $urlRouterProvider.otherwise("/home")
       
       $stateProvider
-        .state('home.route1', {
-            url: "/home/route1",
-            templateUrl: "html/route1.html"
-         })
+      .state("home", {
+          url: "/home",
+          templateUrl: "html/home.html",
+          controller: 'SampleCtrl'
+        })
+        // .state('home.route1', {
+        //     url: "/home/route1",
+        //     templateUrl: "html/route1.html"
+        //  })
         //   .state('route1.route2', {
         //       url: "/route2",
         //       templateUrl: "html/route1.step2.html",
@@ -29,32 +34,46 @@ var callCenter = angular.module('callCenter', ["ui.router", "firebase", "ngGrid"
         //     url: "/route2/step2",
         //     templateUrl: "html/route2.step2.html"
         // })
-        .state('home', {
-            url: "/home",
+        .state('script', {
+            url: "/script",
             templateUrl: "html/products.html"
         })
-        .state('route3', {
-            url: "/route3",
-            templateUrl: "html/route3.html"
-        })
+        // .state('route3', {
+        //     url: "/route3",
+        //     templateUrl: "html/route3.html"
+        // })
          .state('leads', {
             url: "/leads",
             templateUrl: "html/leads.html",
-            controller: 'gridCtrl'
-        })
-         .state('login', {
-            url: '/login',
-            templateUrl: '/html/login.html',
-            controller: 'LoginCtrl'
-        })
-        //   .state('route2.list', {
-        //       url: "/list",
-        //       templateUrl: "route2.list.html",
-        //       controller: function($scope){
-        //         $scope.things = ["A", "Set", "Of", "Things"];
-        //       }
-        //   })
-    });
+            controller: 'gridCtrl',
+            // controller: 'HomeCtrl',
+            resolve: {
+            // controller will not be loaded until $getCurrentUser resolves
+            // simpleLogin refers to our $firebaseSimpleLogin wrapper in the example above
+            "currentUser": ["simpleLogin", function(simpleLogin) {
+              // $getCurrentUser returns a promise so the resolve waits for it to complete
+              return simpleLogin.$getCurrentUser();
+            }]
+          }
+        });
+         
+
+      callCenter.controller("HomeCtrl", ["currentUser", function(currentUser) {
+        // currentUser (provided by resolve) will contain the
+        // authenticated user or null if not logged in
+      }]);
+
+
+          });
+            
+      callCenter.factory("simpleLogin", ["$firebaseSimpleLogin", function($firebaseSimpleLogin) {
+        var ref = new Firebase("https://callcenter.firebaseio.com/Company/Leads/User");
+        return $firebaseSimpleLogin(ref);
+      }]);
+      // and use it in our controller
+      callCenter.controller("SampleCtrl", ["$scope", "simpleLogin", function($scope, simpleLogin) {
+        $scope.auth = simpleLogin;
+      }])
 
       callCenter.controller("LeadsCtrl", function($scope, $firebase, $http, $rootScope) {
         var ref = new Firebase("https://callcenter.firebaseio.com/Company/Leads");
@@ -159,8 +178,7 @@ var callCenter = angular.module('callCenter', ["ui.router", "firebase", "ngGrid"
       };
 
 
-  callCenter.controller('LoginCtrl', function ($scope, EnvironmentService) {
-    $scope.env = EnvironmentService.getEnv();
-  });
 
       });
+
+ 
