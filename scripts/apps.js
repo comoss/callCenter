@@ -9,10 +9,11 @@ var callCenter = angular.module('callCenter', ["ui.router", "firebase", "ngGrid"
           templateUrl: "html/home.html",
           controller: 'SampleCtrl'
         })
-        // .state('home.route1', {
-        //     url: "/home/route1",
-        //     templateUrl: "html/route1.html"
-        //  })
+        .state('phone', {
+            url: "/phone",
+            templateUrl: "views/index.html",
+            controller: "LeadsCtrl"
+         })
         //   .state('route1.route2', {
         //       url: "/route2",
         //       templateUrl: "html/route1.step2.html",
@@ -46,7 +47,7 @@ var callCenter = angular.module('callCenter', ["ui.router", "firebase", "ngGrid"
             url: "/leads",
             templateUrl: "html/leads.html",
             controller: 'gridCtrl',
-            // controller: 'HomeCtrl',
+            // controller: 'LeadsCtrl',
             resolve: {
             // controller will not be loaded until $getCurrentUser resolves
             // simpleLogin refers to our $firebaseSimpleLogin wrapper in the example above
@@ -64,10 +65,14 @@ var callCenter = angular.module('callCenter', ["ui.router", "firebase", "ngGrid"
       }]);
 
 
+
+
+
+
           });
             
       callCenter.factory("simpleLogin", ["$firebaseSimpleLogin", function($firebaseSimpleLogin) {
-        var ref = new Firebase("https://callcenter.firebaseio.com/Company/Leads/User");
+        var ref = new Firebase("https://callcenter.firebaseio.com/");
         return $firebaseSimpleLogin(ref);
       }]);
       // and use it in our controller
@@ -76,7 +81,7 @@ var callCenter = angular.module('callCenter', ["ui.router", "firebase", "ngGrid"
       }])
 
       callCenter.controller("LeadsCtrl", function($scope, $firebase, $http, $rootScope) {
-        var ref = new Firebase("https://callcenter.firebaseio.com/Company/Leads");
+        var ref = new Firebase("https://callcenter.firebaseio.com/");
         var sync = $firebase(ref);
         $scope.leads = sync.$asArray();
 

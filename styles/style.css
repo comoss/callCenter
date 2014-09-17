@@ -1,14 +1,12 @@
-html{
-    min-height:100%;/* make sure it is at least as tall as the viewport */
-   /* position:relative*/
+/*html{
+    min-height:100%; make sure it is at least as tall as the viewport 
+   /* position:relative
 }
 body{
     height:100% 
 }
+*/
 
-p {
-	font-family: sans-serif;
-}
 
 .client {
 	float: right;
@@ -16,24 +14,14 @@ p {
 	display: inline-block;
 }
 
-.user{
-	margin-left: 10em;
-}
 
-.inputs {
-	margin-left: 10%;
-}
-
-/*.main-view {
- max-width: 70%;
- margin-left: 12%;
- margin-right: 22%;
+.main-view {
+ max-width: 80%;
+ margin-left: 20%;
+ margin-right: 20%;
  margin-top: 7em;
-}*/
-
-#messagesDiv {
-	margin-left: 20%
 }
+
 
 .btn-primary{
     position:fixed;
@@ -103,8 +91,6 @@ p {
 	background-color: white;
 	border-color: #428bca;
 	color: #428bca;
-
-}
 
 }
 
@@ -286,7 +272,9 @@ max-width: 50%;
 
 .gridStyle {
     border: 1px solid rgb(212,212,212);
-    width: 120%; 
+    width: 80%; 
+    margin-right: 10%;
+    margin-left:10%;
     height: 50em;
     margin-bottom: 5em;
 }
@@ -312,6 +300,6 @@ max-width: 50%;
 	display: inline-block;
 	margin: 0;
 }
-/* {
+* {
    border: 1px solid red !important;
 }*/
