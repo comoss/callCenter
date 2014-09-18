@@ -78,16 +78,18 @@ var callCenter = angular.module('callCenter', ["ui.router", "firebase", "ngGrid"
       // and use it in our controller
       callCenter.controller("SampleCtrl", ["$scope", "simpleLogin", function($scope, simpleLogin) {
         $scope.auth = simpleLogin;
+
       }])
 
-      callCenter.controller("LeadsCtrl", function($scope, $firebase, $http, $rootScope) {
-        var ref = new Firebase("https://callcenter.firebaseio.com/");
+      callCenter.controller("LeadsCtrl", function($scope, $firebase, $http, $rootScope, simpleLogin) {
+        var ref = new Firebase("https://callcenter.firebaseio.com/" + "/leads");
         var sync = $firebase(ref);
         $scope.leads = sync.$asArray();
-
+       
+        
         $scope.addLead = function(lead) {
           $scope.leads.$add(lead);
-          
+          console.log(simpleLogin.user);
         };
 
         $http({
