@@ -4,7 +4,7 @@ var app = angular.module("callCenter");
     
     $scope.user = currentUser; 
 
-      if (!$scope.user.id){
+      if (!$scope.auth.user){
         $state.go('home')
       }
 
