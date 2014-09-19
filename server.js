@@ -6,11 +6,11 @@ var twilio = require('twilio'),
 var app = express();
 
 
-app.use(express.static('/views')) 
-app.use('/scripts', express.static(__dirname + '/scripts'));
-app.use('/styles', express.static(__dirname + '/styles'));
-app.use('/html', express.static(__dirname + '/html'));
-app.use('/app', express.static(__dirname + '/app'));
+app.use(express.static('/app')) 
+app.use('/app/scripts', express.static(__dirname + '/app/scripts'));
+app.use('/app/styles', express.static(__dirname + '/app/styles'));
+app.use('/app/views', express.static(__dirname + '/app/views'));
+
 
 
 
@@ -40,7 +40,7 @@ app.get('/', function(req, res) {
     //     token:capability.generate()
     // });
 
-    res.sendfile(__dirname + '/views/index.html');
+    res.sendfile(__dirname + '/app/views/index.html');
 });
 
 app.get('/getToken', function(req, res){

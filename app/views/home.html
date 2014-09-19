@@ -1,0 +1,18 @@
+<nav class='navbar-default' role='navigation'>
+    <ul class="nav nav-pills">
+      <li class="active"><a href="#" ui-sref='home'>Home</a></li>
+      <li><a href="#" ui-sref='secure.leads({userId : auth.user.id})'>Search Leads</a></li>
+    </ul>
+</nav> 
+
+
+  <div ng-show="auth.user">
+      <p>Hello, {{auth.user.displayName}}</p>
+      <button ng-click="auth.$logout()">Logout</button>
+    </div>
+    <div ng-hid="auth.user">
+      <p>Welcome, please log in.</p>
+      <button ng-click="auth.$login('google')">Login</button>
+    </div>
+
+{{auth.user.id}}

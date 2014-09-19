@@ -1,0 +1,13 @@
+var app = angular.module("callCenter");
+
+  app.controller("authController", function($scope, currentUser, $state){
+    
+    $scope.user = currentUser; 
+
+      if (!$scope.user.id){
+        $state.go('home')
+      }
+
+
+  });
+
