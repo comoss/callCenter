@@ -6,11 +6,11 @@ var twilio = require('twilio'),
 var app = express();
 
 
-app.use(express.static('/views')) 
-app.use('/scripts', express.static(__dirname + '/scripts'));
-app.use('/styles', express.static(__dirname + '/styles'));
-app.use('/html', express.static(__dirname + '/html'));
-app.use('/app', express.static(__dirname + '/app'));
+app.use(express.static('/app')) 
+app.use('/app/scripts', express.static(__dirname + '/app/scripts'));
+app.use('/app/styles', express.static(__dirname + '/app/styles'));
+app.use('/app/views', express.static(__dirname + '/app/views'));
+// app.use('/app', express.static(__dirname + '/app'));
 
 
 
@@ -23,10 +23,7 @@ app.get('/', function(req, res) {
     // Create an object which will generate a capability token
     // Replace these two arguments with your own account SID
     // and auth token:
-   var capability = new twilio.Capability(
-     'ACad14cf9ae6eda55b278211274df94264', '5551e9b5547e1d3fe01fec4f40b2ba61'
-    );
- 
+   var capability = new twilio.Capability('ACad14cf9ae6eda55b278211274df94264', '5551e9b5547e1d3fe01fec4f40b2ba61');
     // Give the capability generator permission to accept incoming
     // calls to the ID "kevin"
     capability.allowClientIncoming('kevin');
@@ -39,15 +36,12 @@ app.get('/', function(req, res) {
     // res.render('index.html', {
     //     token:capability.generate()
     // });
-
-    res.sendfile(__dirname + '/views/index.html');
+    res.sendfile(__dirname + '/app/views/index.html');
 });
 
-app.get('/getToken', function(req, res){
-    var capability = new twilio.Capability(
-     'ACad14cf9ae6eda55b278211274df94264', '5551e9b5547e1d3fe01fec4f40b2ba61'
-    );
- 
+app.get('/getToken', function(req, res) {
+    var capability = new twilio.Capability('ACad14cf9ae6eda55b278211274df94264', '5551e9b5547e1d3fe01fec4f40b2ba61');
+
     // Give the capability generator permission to accept incoming
     // calls to the ID "kevin"
     capability.allowClientIncoming('kevin');
@@ -58,7 +52,7 @@ app.get('/getToken', function(req, res){
 
     var token = capability.generate();
     res.end(token);
-})
+});
 
  
 app.listen(1337);
