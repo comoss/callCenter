@@ -10,7 +10,7 @@ callCenter.config(function ($stateProvider, $urlRouterProvider) {
           templateUrl: "app/views/home.html",
           controller: 'loginCtrl'
       })
-      .state('p', {
+      .state('LoggedinPage', {
           url: "/leads/:userId",
           templateUrl: "app/views/leads.html",
           controller: 'leadsCtrl',

@@ -1,7 +1,7 @@
 var app = angular.module('callCenter');
 
 app.controller('leadsCtrl', function ($scope, leadsRef, $http) {
-    debugger;
+    
     $scope.leads = leadsRef.$asArray();
 
   $scope.addLead = function(lead) {
@@ -24,7 +24,7 @@ app.controller('leadsCtrl', function ($scope, leadsRef, $http) {
   var connection = null;
 
   var twilioStuff = function (token) {
-      debugger;
+      
       Twilio.Device.setup(token);
 
       Twilio.Device.incoming(function (conn) {

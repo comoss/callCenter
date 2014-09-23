@@ -4,6 +4,6 @@ callCenter.controller("loginCtrl", ["$scope", "simpleLogin", '$state', function(
     $scope.auth = simpleLogin;
 
     $scope.getLeads = function () {
-        $state.go('p', { userId: $scope.auth.user.id });
+        $state.go('LoggedinPage', { userId: $scope.auth.user.id });
     };
 }]);

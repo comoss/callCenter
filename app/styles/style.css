@@ -23,13 +23,16 @@ p {
 	margin-left: 10%;
 }
 
-/*.main-view {
- max-width: 70%;
- margin-left: 12%;
- margin-right: 22%;
- margin-top: 7em;
+/*.logIn {
+ max-width: 50%;
+ margin-left: 25%;
+ margin-right: 25%;
 }*/
 
+.navImg {
+	float: right;
+	height: 3em;
+}
 #messagesDiv {
 	margin-left: 20%
 }
