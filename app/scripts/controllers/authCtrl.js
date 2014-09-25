@@ -1,11 +1,11 @@
-var app = angular.module('callCenter');
+var callCenter = angular.module('callCenter');
 
-app.controller('authCtrl', function($scope, currentUser, $state){
+callCenter.controller('authCtrl', function($scope, currentUser, $state){
 
   $scope.user = currentUser;
 
   if(!$scope.user.id){
     $state.go('home');
   }
-  
+
 });

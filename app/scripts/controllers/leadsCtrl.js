@@ -1,6 +1,6 @@
-var app = angular.module('callCenter');
+var callCenter = angular.module('callCenter');
 
-app.controller('leadsCtrl', function ($scope, leadsRef, $http) {
+callCenter.controller('leadsCtrl', function ($scope, leadsRef, $http) {
     
     $scope.leads = leadsRef.$asArray();
 

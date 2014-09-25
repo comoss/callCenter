@@ -23,12 +23,6 @@ p {
 	margin-left: 10%;
 }
 
-/*.logIn {
- max-width: 50%;
- margin-left: 25%;
- margin-right: 25%;
-}*/
-
 .navImg {
 	float: right;
 	height: 3em;
@@ -105,8 +99,6 @@ p {
 	background-color: white;
 	border-color: #428bca;
 	color: #428bca;
-
-}
 
 }
 
@@ -288,10 +280,10 @@ max-width: 50%;
 
 .gridStyle {
     border: 1px solid rgb(212,212,212);
-    width: 80%; 
-    margin-right: 10%;
-    margin-left:10%;
     height: 50em;
+    max-width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
     margin-bottom: 5em;
 }
 
