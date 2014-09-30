@@ -8,18 +8,22 @@ callCenter.controller('leadsCtrl', function ($scope, leadsRef, $http) {
     $scope.leads.$add(lead);
   };
 
-  $scope.gridOptions = {
-      data: 'leads',
-      height: '110px',
-      sortInfo: { fields: ['Name', 'Phone', 'Location', 'notes'], directions: ['asc'] },
-      columnDefs: [
-          { field: 'name', displayName: 'Name', width: '150px' },
-          { field: 'phone', displayName: 'Phone', width: '110px' },
-          { field: 'email', displayName: 'Email', width: '200px' },
-          { field: 'location', displayName: 'Location', width: '300px' },
-          { field: 'notes', displayName: 'Notes', width: '375px' }
-      ]
-  };
+$scope.clickToCall = function(){
+
+}
+
+  // $scope.gridOptions = {
+  //     data: 'leads',
+  //     height: '110px',
+  //     sortInfo: { fields: ['Name', 'Phone', 'Location', 'notes'], directions: ['asc'] },
+  //     columnDefs: [
+  //         { field: 'name', displayName: 'Name', width: '150px' },
+  //         { field: 'phone', displayName: 'Phone', width: '110px' },
+  //         { field: 'email', displayName: 'Email', width: '200px' },
+  //         { field: 'location', displayName: 'Location', width: '300px' },
+  //         { field: 'notes', displayName: 'Notes', width: '375px' }
+  //     ]
+  // };
 
   var connection = null;
 
@@ -30,6 +34,7 @@ callCenter.controller('leadsCtrl', function ($scope, leadsRef, $http) {
       Twilio.Device.incoming(function (conn) {
           if (confirm('Accept incoming call from ' + conn.parameters.From + '?')) {
               $scope.fromNumber = conn.parameters.From;
+            
               for (var i = 0; i < $scope.leads.length; i++) {
                   if ($scope.leads[i].phone === $scope.fromNumber) {
                       $scope.$apply(function () {
@@ -72,7 +77,7 @@ callCenter.controller('leadsCtrl', function ($scope, leadsRef, $http) {
       });
   });
 
-  $.each(['0','1','2','3','4','5','6','7','8','9','star','pound'], function(index, value) { 
+  $.each(['0','1','2','3','4','5','6','7','8','9','star','pound','plus'], function(index, value) { 
     $('#button' + value).click(function(){ 
       if(connection) {
           if (value == 'star')

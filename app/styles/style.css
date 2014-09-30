@@ -15,6 +15,7 @@ p {
 	display: inline-block;
 }
 
+
 .user{
 	margin-left: 10em;
 }
@@ -68,12 +69,12 @@ p {
 	border-radius: 0.25em;
 }
 
-.peabody1 {
+.end {
 	float: left;
 	display: inline-block;
 	margin-left: 1.5em;
 }
-.peabody {
+.end {
 	display: inline-block;
 	margin-left: 1.5em;
 	float:right;
@@ -308,6 +309,6 @@ max-width: 50%;
 	display: inline-block;
 	margin: 0;
 }
-/* {
+* {
    border: 1px solid red !important;
 }*/

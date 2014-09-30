@@ -1,7 +1,25 @@
  <user-nav></user-nav>
  <button class="btn btn-primary" data-toggle="modal" data-target=".bs-modal-lg"><img id='phoneImg'  src="http://simpleicon.com/wp-content/uploads/phone-symbol-2.png"></button>
 
-<div class="gridStyle" ng-grid="gridOptions"></div>
+<!-- <div class="gridStyle" ng-grid="gridOptions"></div> -->
+<div class="container">
+  <table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Location</th>
+      <th>Notes</th>
+    </tr>
+    <tr ng-click="clickToCall()" ng-repeat="lead in leads">
+      <td>{{lead.name}}</td>
+      <td>{{lead.phone}}</td>
+      <td>{{lead.email}}</td>
+      <td>{{lead.location}}</td>
+      <td>{{lead.notes}}</td>
+    </tr>
+  </table>
+</div>
    
 <div class="modal fade bs-modal-lg" tabindex="1"  aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
@@ -16,7 +34,7 @@
         
                 <div class='innerDiv'>
                     <div class='tocall'>
-                        <form role='form'><input type="text" id='toCall' class='form-control' value="" placeholder='+18012279533'></form>
+                        <form role='form'><input type="text" id='toCall' class='form-control' ng-model="callNumber" placeholder='+18012279533'></form>
                     </div>
 
                            <div id="dialpad">
@@ -40,8 +58,8 @@
                                 <td><button id="buttonPound" value='#'><p class='numberSize'>#</p></button></td>
                                 </tr>
                                 <td><button id="call"><p>Start Call</p></button></td>
-                                 <td><button id="buttonClear" value=''><p class='numberSize'>Clear</p></button></td>
-                                <td><button id="hangup" class='peabody'><p>End Call</p></button></td>
+                                
+                                <td><button id="hangup" class='end'><p>End Call</p></button></td>
                                 </table>
                           </div>  
               </div> 
