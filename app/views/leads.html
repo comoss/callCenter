@@ -62,19 +62,25 @@
                                 </table>
                           </div>  
                            <div class='calling'>
-                                  <a ng-click='clickToCall' id="call"><div class='numberSizeFunction'>Start Call</div></a>
-                                  <a ng-click id="hangup"><div class='numberSizeFunction'>End Call</div></a>
+                                 <table>
+                                  <td><a ng-click id="call"><div class='numberSizeFunction'><p>Start Call</p></div></a></td>
+                                  <td><a ng-click id="hangup"><div class='numberSizeFunction'><p>End Call</p></div></a></td>
+                                </table>
                                 </div>
               </div>
       </div>
   
+         <div class='Leadsfont'> <p class='Leadsfont'>Lead Creation Center</p> </div>
+
     <!-- push a new message into the array -->
     <form ng-submit="addLead(newLead)" role='form'>
+     <div class='leadInput'>
       <input ng-model="newLead.name" placeholder='Full Name' class='form-control' />
       <input ng-model="newLead.phone" placeholder='+18015555555' class='form-control'/>
       <input ng-model="newLead.email"placeholder='example@example.com' class='form-control' />
       <input ng-model="newLead.location"placeholder='City, State' class='form-control' />
-      <textarea id='model_text' ng-model="newLead.notes"placeholder='Notes' class='form-control' rows='15'></textarea>
+      </div>
+      <textarea id='model_text' ng-model="newLead.notes" placeholder='Notes' class='form-control' rows='8'></textarea>
       <button type="submit" class="btn btn-default" id='leadBTN'>Make New Lead</button>
     </form>
 

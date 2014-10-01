@@ -12,8 +12,8 @@
                 <img class='navImg' src="https://developers.google.com/+/images/branding/sign-in-buttons/Red-signin_Long_base_44dp.png">
           </a>
       </div> 
-      <div class='loginDiv' ng-show="auth.user">
-          <p class='info'>Hello, {{auth.user.displayName}}</p> <a class='logOut' ng-click="auth.$logout()">Logout</a> 
+      <div class='logOut' ng-show="auth.user">
+          <p class='info'>Hello, {{auth.user.displayName}}. <a class='move' ng-click="auth.$logout()">Logout</a> </p>
       </div>
     </ul>
 </nav>

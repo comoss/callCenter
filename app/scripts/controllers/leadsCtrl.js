@@ -61,7 +61,7 @@ $scope.clickToCall = function(){
     params = { "tocall" : $('#tocall').val()};
     connection =  Twilio.Device.connect({
         CallerId:'+18012279533', // Replace this value with a verified Twilio number:https://www.twilio.com/user/account/phone-numbers/verified
-        PhoneNumber:$('.form-control').val() //pass in the value of the text field
+        PhoneNumber: $scope.callNumber //pass in the value of the text field
       });
   });
 

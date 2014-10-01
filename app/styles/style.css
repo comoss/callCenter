@@ -24,8 +24,12 @@ body{
 	display: inline-block;
 }
 
+.move {
+	margin-left: 10em;
+}
+
 .logOut{
-		margin-left: 60%
+		margin-left: 75%
 }
 
 .user{
@@ -109,17 +113,6 @@ p {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 	 
 }
 .image {
@@ -143,10 +136,7 @@ p {
 	margin: 1em;
 	font-family: 'Lato', sans-serif;
 }
-#model_text {
-	width: 100%;
 
-}
 
 .homefont {
 	font-family: 'Lato', sans-serif;
@@ -171,14 +161,14 @@ p {
 }
 
 #leadBTN {
-	margin-top: 2em;
+	margin-top: 1em;
 	margin-bottom: 2em;
-	margin-left: 2em;
+	margin-left: 1.5em;
 	font-family: 'Lato', sans-serif;
 }
 
 .form-control {
-	width: 24%;
+	width: 15em;
 	display: inline-block;
 	margin: 0;
 	font-family: 'Lato', sans-serif;
@@ -192,6 +182,7 @@ p {
 	margin-bottom: .5em;
 display: inline-block;
 max-width: 50%; 
+
 }
 
 #toCall {
@@ -200,22 +191,23 @@ max-width: 50%;
 }
 
 #hangup {
-	height: 4.5em;
-	width: 9.2em;
 	background-color: white;
 	border-color: #428bca;
 	color: #428bca;
 	display: inline-block;
-	margin: 0;
+	margin-left: .5em;
+	width:133px;
+  height:133px;
 }
 
 #call {
-	height: 4.5em;
-	width: 9.2em;
 	background-color: white;
 	border-color: #428bca;
 	color: #428bca;
 	display: inline-block;
+	width:133px;
+  height:133px;
+	
 }
 
 .numberSize {
@@ -234,9 +226,9 @@ max-width: 50%;
 	font-size: 2em;
 	 background-color: #428bca;
 	color:white; 
-	padding-left: 1.3em;
-	padding-right: 1.3em;
-	border: 1px solid white;
+  width:133px;
+  height:133px;
+	display: inline-block;
 }
 
 /*.innerDiv {
@@ -244,10 +236,31 @@ max-width: 50%;
 }*/
 
 .calling{
-	display: inline-box;
+	display: inline-block;
 	width: 21em;
 }
 
+.leadInput {
+margin-left: 1.5em;
+margin-right: 1.5em;
+margin-bottom: 1em;
+
+}
+
+#model_text {
+	width:  95%;
+	margin-left: 1.5em;
+	margin-right: 1.5em;
+}
+
+.Leadsfont{
+	font-family: 'Lato', sans-serif;
+	 margin-left: auto;
+   margin-right: auto;
+   width: 63%;
+   font-size: 1.5em;
+   font-style: bold;
+}
 /* {
    border: 1px solid red !important;
 }*/
