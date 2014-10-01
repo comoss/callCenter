@@ -1,27 +1,25 @@
  <nav class='navbar-default' role='navigation'>
     
     <ul class="nav nav-pills">
-      
-    
-      <li class="active"><a ui-sref='home'>Home</a></li>     
-      <li><a ng-click="getLeads()">Leads</a></li>  
-
-      <li><a ng-click="auth.$login('google')"><img class='navImg' src="https://developers.google.com/+/images/branding/sign-in-buttons/Red-signin_Long_base_44dp.png"></a></li>
-  
-  
- <li class='logIn' ng-show="auth.user">
-      <button ng-click="auth.$logout()" >Logout</button>
-    </li>
+        <li class="active">
+          <a ui-sref='home'>Home</a>
+        </li>     
+        <li>
+          <a ng-click="getLeads()">Leads</a>
+        </li> 
+          <div class='loginDiv' ng-hide='auth.user'>
+          <a ng-click="auth.$login('google')">
+                <img class='navImg' src="https://developers.google.com/+/images/branding/sign-in-buttons/Red-signin_Long_base_44dp.png">
+          </a>
+      </div> 
+      <div class='loginDiv' ng-show="auth.user">
+          <p class='info'>Hello, {{auth.user.displayName}}</p> <a class='logOut' ng-click="auth.$logout()">Logout</a> 
+      </div>
     </ul>
 </nav>
 
 
-<!-- <p class='info'>Hello, {{auth.user.displayName}}</p>     
+
+   
 
 
- <li class="active"><a ui-sref="#/home" ng-click='goHome()'>Home</a></li>
-      
-      <li><a ui-sref="#/leads" >Search Leads</a></li>
-
-
--->
