@@ -6,6 +6,13 @@ callCenter.controller('authCtrl', function($scope, currentUser, $state){
 
   if(!$scope.user.id){
     $state.go('home');
-  }
+  } 
+
+ $scope.auth.$logout() = function () {
+            $state.go('home');
+        
+    };
 
 });
+
+

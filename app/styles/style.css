@@ -55,6 +55,7 @@ body{
     }
 
 .script {
+	margin-top: 1.5em;
 	max-width: 60%;
 	margin-right:22%;
 	margin-left: 18%;
@@ -65,6 +66,10 @@ body{
 
 #phoneImg {
  max-width: 100%;
+ max-height: auto;
+}
+#phoneImg2 {
+ max-width: 35%;
  max-height: auto;
 }
 
@@ -231,13 +236,19 @@ max-width: 50%;
 	display: inline-block;
 }
 
-/*.innerDiv {
-	width:21em;
-}*/
+#searchBar {
+	margin-left: 10em;
+	width: 25em;
+	margin-bottom: 1.5em;
+}
 
 .calling{
 	display: inline-block;
 	width: 21em;
+}
+
+.input-width {
+	width: auto;
 }
 
 .leadInput {
@@ -260,6 +271,12 @@ margin-bottom: 1em;
    width: 63%;
    font-size: 1.5em;
    font-style: bold;
+}
+
+.container {
+	margin-top: 1.5em;
+	width: 87%;
+	margin-left: 8em;
 }
 /* {
    border: 1px solid red !important;

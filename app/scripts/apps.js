@@ -19,5 +19,15 @@ callCenter.config(function ($stateProvider, $urlRouterProvider) {
                   return firebaseService.getLeads($stateParams.userId);
               }
           }
+      })
+      .state('salesScript', {
+          url: "/script/:userId",
+          templateUrl: "app/views/products.html",
+          controller: 'leadsCtrl',
+          resolve: {
+              leadsRef: function(firebaseService, $stateParams) {
+                  return firebaseService.getLeads($stateParams.userId);
+              }
+          }
       });
 });

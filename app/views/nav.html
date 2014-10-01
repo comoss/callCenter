@@ -2,10 +2,13 @@
     
     <ul class="nav nav-pills">
         <li class="active">
-          <a ui-sref='home'>Home</a>
+          <a ui-sref='home' ng-show="auth.user">Home</a>
         </li>     
+         <li>
+          <a ui-sref='salesScript' ng-show="auth.user">Sales Script</a>
+        </li> 
         <li>
-          <a ng-click="getLeads()">Leads</a>
+          <a ng-click="getLeads()" ng-show="auth.user">Leads</a>
         </li> 
           <div class='loginDiv' ng-hide='auth.user'>
           <a ng-click="auth.$login('google')">
@@ -13,7 +16,7 @@
           </a>
       </div> 
       <div class='logOut' ng-show="auth.user">
-          <p class='info'>Hello, {{auth.user.displayName}}. <a class='move' ng-click="auth.$logout()">Logout</a> </p>
+          <p class='info'>Hello, {{auth.user.displayName}}.  <a class='move' ng-click="auth.$logout()">Logout</a> </p>
       </div>
     </ul>
 </nav>
@@ -21,5 +24,4 @@
 
 
    
-
 
