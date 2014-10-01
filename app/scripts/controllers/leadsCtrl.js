@@ -32,20 +32,21 @@ callCenter.controller('leadsCtrl', function ($scope, leadsRef, $http) {
               conn.accept();
           } else {
               connection = conn;
-              conn.ignore();
+              conn.reject();
           }
       });
 
-
+ };
 
       // Register an event handler for when a call ends for any reason
-      Twilio.Device.disconnect(function (connection) {
-           $('#hangup').click(function() {
-          Twilio.Device.disconnectAll();
-          })
-      });
+   
+      // Twilio.Device.disconnect({ 
+      // $('#hangup').click(function() { 
+      //   Twilio.Device.disconnectAll();
+      //     })
+      // });
 
-  };
+ 
   var getToken = function () {
       return $http({ method: 'get', url: '/getToken' }).then(function (data) {
           twilioStuff(data.data);
@@ -63,6 +64,10 @@ callCenter.controller('leadsCtrl', function ($scope, leadsRef, $http) {
       });
   });
 
+ $('#hangup').click(function() {
+            Twilio.Device.disconnectAll();
+        });
+ 
   $.each(['0','1','2','3','4','5','6','7','8','9','star','pound'], function(index, value) { 
     $('#button' + value).click(function(){ 
       if(connection) {
