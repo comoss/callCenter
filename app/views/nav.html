@@ -4,12 +4,15 @@
         <li class="active">
           <a ui-sref='home' ng-show="auth.user">Home</a>
         </li>     
-         <li>
-          <a ui-sref='salesScript' ng-show="auth.user">Sales Script</a>
-        </li> 
+        <!--  <li>
+          <a ng-click='getScript()' ng-show="auth.user">Sales Script</a>
+        </li>  -->
         <li>
           <a ng-click="getLeads()" ng-show="auth.user">Leads</a>
         </li> 
+       <!--  <li><a class='nav nav-pills' data-toggle="modal" data-target="#myModal">
+  Script Editor
+</a></li> -->
           <div class='loginDiv' ng-hide='auth.user'>
           <a ng-click="auth.$login('google')">
                 <img class='navImg' src="https://developers.google.com/+/images/branding/sign-in-buttons/Red-signin_Long_base_44dp.png">
@@ -23,5 +26,30 @@
 
 
 
-   
-
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Script Editor</h4>
+      </div>
+      <div class="modal-body">
+       <form ng-submit="addDialog(newWords)" role='form'>
+     <div class='leadInput'>
+      <textarea ng-model="newWords.Intro" class='homeFont' rows='5'></textarea>
+      <textarea  ng-model="newWords.Discover"  class='homeFont' rows='5'></textarea>
+      <textarea  ng-model="newWords.Pain"  class='homeFont' rows='5'></textarea>
+      <textarea  ng-model="newWords.Pitch"  class='homeFont' rows='5'></textarea>
+      </div>
+    
+      
+    </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-default">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>

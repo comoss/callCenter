@@ -7,4 +7,8 @@ callCenter.controller("loginCtrl", ["$scope", "simpleLogin", '$state', function(
         $state.go('LoggedinPage', { userId: $scope.auth.user.id });
     };
 
+     $scope.getScript = function () {
+        $state.go('salesScript', { userId: $scope.auth.user.id });
+    };
+
 }]);

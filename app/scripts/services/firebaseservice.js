@@ -1,6 +1,6 @@
-var app = angular.module('callCenter');
+var callCenter = angular.module('callCenter');
 
-app.service('firebaseService', function(environmentService, $firebase) {
+callCenter.service('firebaseService', function(environmentService, $firebase) {
 
     var firebaseUrl = environmentService.getEnv().firebase;
 
@@ -8,5 +8,6 @@ app.service('firebaseService', function(environmentService, $firebase) {
         getLeads: function(userId) {
             return $firebase(new Firebase(firebaseUrl + '/users/' + userId + '/leads'));
         }
+
     };
 });

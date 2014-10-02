@@ -1,4 +1,4 @@
-var callCenter = angular.module('callCenter', ["ui.router", "firebase", "ngGrid"]);
+var callCenter = angular.module('callCenter', ["ui.router", "firebase"]);
 
 callCenter.config(function ($stateProvider, $urlRouterProvider) {
 
@@ -23,10 +23,10 @@ callCenter.config(function ($stateProvider, $urlRouterProvider) {
       .state('salesScript', {
           url: "/script/:userId",
           templateUrl: "app/views/products.html",
-          controller: 'leadsCtrl',
+          controller: 'scriptCtrl',
           resolve: {
-              leadsRef: function(firebaseService, $stateParams) {
-                  return firebaseService.getLeads($stateParams.userId);
+             scriptRef : function(firebaseScriptService, $stateParams) {
+                  return firebaseScriptService.getScript($stateParams.userId);
               }
           }
       });
